@@ -1,6 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-surface: #FAF7F2;
+  --color-ink: #2D2A26;
+  --color-muted: #6B655C;
+  --color-accent: #D98E3F;
+  --color-accent-secondary: #3B6E64;
+  --color-surface-skills: #F3EDE3;
+  --color-border: #E5E0D8;
+
+  --font-heading: "Fraunces", serif;
+  --font-body: "Inter", sans-serif;
+}
+
+.dark {
+  --color-surface: #1C1A17;
+  --color-ink: #F0EBE3;
+  --color-muted: #B8B2A8;
+  --color-surface-skills: #2A2620;
+  --color-border: #3A352E;
+}
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  @apply bg-surface text-ink;
 }
