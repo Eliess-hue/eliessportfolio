@@ -1,0 +1,26 @@
+.marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+.scroll-left {
+  animation: scroll-left 20s linear infinite;
+}
+
+.scroll-right {
+  animation: scroll-left 20s linear infinite reverse;
+}
+
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
