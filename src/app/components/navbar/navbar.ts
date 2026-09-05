@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
+import { ThemeService } from '../../services/theme';
 
 interface NavLink {
   label: string;
@@ -12,6 +13,7 @@ interface NavLink {
   styleUrl: './navbar.scss',
 })
 export class Navbar {
+  protected readonly themeService = inject(ThemeService);
   protected readonly isMenuOpen = signal(false);
 
   protected readonly links: NavLink[] = [

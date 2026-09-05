@@ -1,21 +1,33 @@
-<header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200">
+<header class="sticky top-0 z-50 bg-surface/90 backdrop-blur border-b border-border">
   <nav class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-    <span class="font-semibold text-gray-900">Eliess</span>
+    <span class="font-semibold font-heading text-ink">Eliess</span>
 
     <!-- Liens desktop -->
     <ul class="hidden md:flex gap-6">
       @for (link of links; track link.href) {
         <li>
-          <a [href]="link.href" class="text-gray-600 hover:text-gray-900 transition">
+          <a [href]="link.href" class="text-muted hover:text-ink transition">
             {{ link.label }}
           </a>
         </li>
       }
     </ul>
 
+    <button
+      (click)="themeService.toggle()"
+      class="text-ink"
+      aria-label="Changer de thème"
+    >
+      @if (themeService.theme() === 'dark') {
+        ☀️
+      } @else {
+        🌙
+      }
+    </button>
+
     <!-- Bouton burger (mobile uniquement) -->
     <button
-      class="md:hidden text-gray-900"
+      class="md:hidden text-ink"
       (click)="toggleMenu()"
       [attr.aria-expanded]="isMenuOpen()"
       aria-label="Ouvrir le menu"
@@ -33,7 +45,7 @@
     <ul class="md:hidden flex flex-col items-center gap-4 pb-6">
       @for (link of links; track link.href) {
         <li>
-          <a [href]="link.href" (click)="closeMenu()" class="text-gray-600 hover:text-gray-900 transition">
+          <a [href]="link.href" (click)="closeMenu()" class="text-muted hover:text-ink transition">
             {{ link.label }}
           </a>
         </li>
